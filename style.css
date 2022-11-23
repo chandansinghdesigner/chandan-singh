@@ -3,6 +3,13 @@
   font-size: 25px;
   letter-spacing: 3px;
 }
+img.whatsapp-widget.whatsapp-img {
+  width: 18px;
+  margin-left: 10px;
+  margin-top: 10px;
+  position: relative;
+  top: 4px;
+}
 .mCustomScrollbar {
   -ms-touch-action: pinch-zoom;
   touch-action: pinch-zoom;
@@ -2550,7 +2557,8 @@ form .small .status > *:nth-child(2),
   display: block;
 }
 .template main a{
-  display: block;
+  display:inline-block;
+  line-height: 20px;
 }
 .template main h1 > *,
 .template main .h1 > * {
@@ -2568,7 +2576,7 @@ form .small .status > *:nth-child(2),
 }
 .template main .p,
 .template main ul {
-  margin-bottom: 21px;
+  margin-bottom: 40px;
 }
 .template footer {
   position: absolute;
