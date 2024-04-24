@@ -6,7 +6,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #fff;
-  background: #000000;
+  background: #000000 !important;
   z-index: 0;
 }
 p {
