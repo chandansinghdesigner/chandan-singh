@@ -1541,7 +1541,7 @@ a.link.small:hover:before {
   }
 }
 .links a.link.small:not(:last-child) {
-  margin-right: 21px;
+  margin-right: 10px;
 }
 .color-green a.link:not(.small),
 .color-green a.link.small:hover {

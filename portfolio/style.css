@@ -161,3 +161,10 @@ margin-top: 30px;
 /*******Responsive media query******/
 
 /* Extra small devices (portrait phones, less than 576px)*/
+
+@media only screen and (max-width: 667px) and (min-width:280px)  {
+
+  .pd img {
+    height: 230px;
+  }
+}
