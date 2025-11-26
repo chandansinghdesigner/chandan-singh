@@ -1346,9 +1346,10 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 28px;
-  background-color: #171a19;
+  background-color: #000000;
   color: #ddd;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 img {
   -webkit-user-select: none;
@@ -1365,26 +1366,18 @@ img {
   color: inherit;
 }
 .wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  min-height: 500px;
-  cursor: move;
-  cursor: grab;
-  cursor: -moz-grab;
-  cursor: -webkit-grab;
-}
-.wrapper:active {
-  cursor: grabbing;
-  cursor: -moz-grabbing;
-  cursor: -webkit-grabbing;
+    overflow: hidden;
+    height: 100%;
+    background: #000;
 }
 .wrapper .container {
-  position: relative;
-  width: 90%;
-  max-width: 1280px;
-  height: 100%;
-  margin: 0 auto;
+ position: absolute;
+    width: 90%;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    top: 0;
+    left: 5%;
 }
 .mCustomScrollBox,
 .mCSB_container {
