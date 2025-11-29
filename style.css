@@ -6747,19 +6747,36 @@ form .small .status > *:nth-child(2),
 .notFound #chandan {
   filter: grayscale(1);
 }
+@media only screen and (max-width: 1023px) and (min-width:280px)  {
+  .template main{bottom:140px; top: auto;}
+}
 
 
 @media only screen and (max-width: 667px) and (min-width:280px)  {
   .wrapper {
-    background-image:url('./chandan-images.png');
+    /* background-image:url('./chandan-images.png');
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
-    background-position-x: center;
+    background-position-x: center; */
+    text-align: center;
+}
+video.hero_custom__background.hero_custom__background--video {
+        position: relative;
+        right: 100%;
+}
+canvas {
+  display: none !important;
 }
   .color-yellow mark {
     color: #ffc513;
     font-size: 40px;
+}
+a.link:not(.small):before {
+    bottom: 10px;
+}
+.links a.link.small:not(:last-child) {
+    margin-right: 5px;
 }
 canvas#chandan {
   display: none;
