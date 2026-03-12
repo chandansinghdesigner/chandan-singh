@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chandan Singh Designer —  Senior UI Developer & Frontend Engineer</title>
+<link rel="icon" type="image/jpg" href="fevicon.jpg" >
+<meta name="description" content="Senior UI Developer with 9+ years building pixel-perfect, responsive UI for FinTech, Crypto, SaaS & Enterprise platforms using React, Angular, Next.js, Vue.js.">
+<meta property="og:title" content="Chandan Kumar Singh – Senior UI Developer">
+<meta property="og:description" content="9+ years | React · Angular · Next.js · Vue.js | Figma to Code | FinTech & SaaS Expert">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32226098?v=4">
+<meta property="og:url" content="https://chandansinghdesigner.github.io/chandan-singh/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <!--FaceBook meta-->
+   <meta property="og:title" content="Chandan Singh - Portfolio" />
+<meta property="og:description" content="Explore the portfolio of Chandan Singh, a creative designer and web developer." />
+<meta property="og:image" content="https://chandansinghdesigner.github.io/chandan-singh/bannerImage.jpg" />
+<meta property="og:url" content="https://chandansinghdesigner.github.io/chandan-singh/" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chandan Singh - Portfolio">
+<meta name="twitter:description" content="Explore the portfolio of Chandan Singh, a creative designer and web developer.">
+<meta name="twitter:image" content="https://chandansinghdesigner.github.io/chandan-singh/bannerImage.jpg">
+<style>
+/* ══════════════════════════ TOKENS ══════════════════════════ */
+:root{
+  --bg:   #07070e;
+  --bg1:  #0d0d18;
+  --bg2:  #121220;
+  --bg3:  rgba(255,255,255,0.03);
+  --bg4:  rgba(255,255,255,0.055);
+  --bdr:  rgba(255,255,255,0.07);
+  --bdr2: rgba(255,255,255,0.13);
+  --txt:  #ededf0;
+  --txt2: rgba(237,237,240,0.55);
+  --txt3: rgba(237,237,240,0.28);
+  --lime: #c6ff3e;
+  --lime2:rgba(198,255,62,0.10);
+  --lime3:rgba(198,255,62,0.20);
+  --rose: #ff5c7c;
+  --rose2:rgba(255,92,124,0.10);
+  --viol: #9b7bff;
+  --viol2:rgba(155,123,255,0.10);
+  --cyan: #3ef0ff;
+  --orn:  #ff8c42;
+  --r:16px;--rs:10px;--rx:6px;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--lime) var(--bg)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--lime);border-radius:4px}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);color:var(--txt);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--lime);color:var(--bg)}
+a{text-decoration:none;color:inherit}
+
+/* noise */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:0.028;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px;
+}
+
+/* ══════════════════════════ LOADER ══════════════════════════ */
+#loader{
+  position:fixed;inset:0;z-index:8999;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:28px;
+  transition:opacity .7s var(--ease),visibility .7s;
+}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none}
+.ld-name{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2.6rem,7vw,5.5rem);
+  letter-spacing:-0.04em;
+  overflow:hidden;display:flex;flex-wrap:wrap;justify-content:center;gap:0 2px;
+}
+.ld-name .lc{
+  display:inline-block;
+  animation:liftUp .7s var(--ease) both;
+  transform:translateY(110%);
+}
+.ld-name .lime{color:var(--lime)}
+.ld-prog{width:160px;height:2px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.ld-prog::after{
+  content:'';display:block;height:100%;width:0;background:var(--lime);border-radius:2px;
+  animation:progFill 1.5s var(--ease) .2s forwards;
+}
+.ld-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txt3);margin-top:4px}
+@keyframes liftUp{to{transform:translateY(0)}}
+@keyframes progFill{to{width:100%}}
+
+/* ══════════════════════════ CURSOR ══════════════════════════ */
+.cur-dot,.cur-ring{position:fixed;pointer-events:none;z-index:8998;border-radius:50%;mix-blend-mode:exclusion}
+.cur-dot{width:6px;height:6px;background:var(--lime);transform:translate(-50%,-50%)}
+.cur-ring{width:38px;height:38px;border:1.5px solid rgba(198,255,62,.55);transform:translate(-50%,-50%);
+  transition:width .35s var(--ease),height .35s var(--ease),border-color .35s}
+body.cur-hover .cur-ring{width:66px;height:66px;border-color:rgba(198,255,62,.2)}
+
+/* ══════════════════════════ NAV ══════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:600;
+  padding:18px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:transform .4s var(--ease),background .4s;
+}
+nav.sc{background:rgba(7,7,14,.88);backdrop-filter:blur(22px);border-bottom:1px solid var(--bdr)}
+nav.hi{transform:translateY(-100%)}
+.nav-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.28rem;
+  letter-spacing:-0.03em;display:flex;align-items:center;gap:2px;
+}
+.nav-logo em{color:var(--lime);font-style:normal}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{
+  color:var(--txt2);font-size:.8rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  position:relative;transition:color .3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-5px;left:0;
+  width:0;height:1.5px;background:var(--lime);
+  transition:width .3s var(--ease);
+}
+.nav-links a:hover{color:var(--txt)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--lime)!important;color:var(--bg)!important;
+  padding:10px 26px!important;border-radius:100px!important;
+  font-weight:800!important;font-size:.78rem!important;letter-spacing:.02em!important;
+  transition:all .3s!important;
+}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{transform:scale(1.05)!important;box-shadow:0 0 28px var(--lime3)!important}
+.hbg{
+  display:none;cursor:pointer;background:none;border:none;
+  flex-direction:column;gap:5px;padding:4px;
+}
+.hbg span{display:block;width:24px;height:1.5px;background:var(--txt);border-radius:2px;transition:all .3s}
+.hbg.on span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--lime)}
+.hbg.on span:nth-child(2){opacity:0}
+.hbg.on span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--lime)}
+
+/* ══════════════════════════ HERO ══════════════════════════ */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:120px 48px 80px;
+}
+/* bg grid */
+.hero::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 40%,black,transparent 100%);
+}
+/* orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.o1{width:700px;height:700px;background:radial-gradient(circle,rgba(198,255,62,.055),transparent 68%);top:-200px;left:-150px;animation:ob1 16s ease-in-out infinite}
+.o2{width:550px;height:550px;background:radial-gradient(circle,rgba(155,123,255,.06),transparent 68%);top:50px;right:-180px;animation:ob2 13s ease-in-out infinite}
+.o3{width:450px;height:450px;background:radial-gradient(circle,rgba(255,92,124,.045),transparent 68%);bottom:-80px;left:35%;animation:ob3 18s ease-in-out infinite}
+@keyframes ob1{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}}
+@keyframes ob2{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,40px)}}
+@keyframes ob3{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
+
+.hero-wrap{
+  position:relative;z-index:5;
+  display:grid;grid-template-columns:1fr 360px;gap:80px;align-items:center;
+  max-width:1180px;width:100%;margin:0 auto;
+}
+/* left */
+.hero-left{}
+.avail-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(198,255,62,.07);border:1px solid rgba(198,255,62,.15);
+  padding:7px 18px;border-radius:100px;
+  font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);
+  margin-bottom:26px;
+  opacity:0;animation:fu .7s var(--ease) 1.6s forwards;
+}
+.avail-badge .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--lime);position:relative;flex-shrink:0;
+}
+.avail-badge .dot::after{
+  content:'';position:absolute;inset:-4px;
+  border-radius:50%;border:1px solid var(--lime);
+  animation:ping 2s ease-in-out infinite;
+}
+@keyframes ping{0%{transform:scale(1);opacity:1}100%{transform:scale(2.4);opacity:0}}
+
+.hero-greeting{
+  font-size:1.1rem;color:var(--txt2);font-style:italic;font-weight:300;
+  margin-bottom:10px;opacity:0;animation:fu .7s var(--ease) 1.75s forwards;
+}
+.hero-name{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2.8rem,5.5vw,4.8rem);
+  letter-spacing:-0.05em;line-height:1.02;margin-bottom:14px;
+  opacity:0;animation:fu .9s var(--ease) 1.9s forwards;
+}
+.hero-name .g{
+  background:linear-gradient(120deg,var(--lime) 0%,#aaff60 45%,var(--cyan) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-role{
+  font-family:'Syne',sans-serif;font-size:clamp(1rem,2.2vw,1.45rem);
+  color:var(--txt2);font-weight:500;letter-spacing:-0.015em;
+  margin-bottom:26px;line-height:1.4;
+  opacity:0;animation:fu .8s var(--ease) 2.05s forwards;
+}
+.hero-role .r{
+  background:var(--bg4);border:1px solid var(--bdr2);
+  color:var(--viol);padding:3px 12px;border-radius:100px;font-size:.88em;
+  margin:0 3px;display:inline-block;
+}
+.hero-desc{
+  color:var(--txt2);font-size:1rem;line-height:1.82;font-weight:300;
+  max-width:520px;margin-bottom:32px;
+  opacity:0;animation:fu .8s var(--ease) 2.2s forwards;
+}
+.hero-contact{
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;
+  opacity:0;animation:fu .7s var(--ease) 2.35s forwards;
+}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--bg3);border:1px solid var(--bdr);
+  padding:9px 16px;border-radius:100px;
+  font-size:.82rem;font-weight:500;color:var(--txt2);
+  transition:all .3s var(--ease);cursor:pointer;
+}
+.chip:hover{border-color:var(--lime);color:var(--lime);background:var(--lime2);transform:translateY(-2px)}
+.chip svg,.chip img{flex-shrink:0;width:15px;height:15px}
+.hero-btns{
+  display:flex;gap:12px;flex-wrap:wrap;
+  opacity:0;animation:fu .8s var(--ease) 2.5s forwards;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 30px;border-radius:100px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;
+  letter-spacing:-0.01em;text-decoration:none;cursor:pointer;border:none;
+  transition:all .35s var(--ease);
+}
+.bl{background:var(--lime);color:var(--bg)}
+.bl:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 40px var(--lime3)}
+.bg{background:transparent;color:var(--txt);border:1px solid var(--bdr2)}
+.bg:hover{border-color:var(--lime);color:var(--lime);background:var(--lime2);transform:translateY(-3px)}
+.br{background:transparent;color:var(--rose);border:1px solid rgba(255,92,124,.28)}
+.br:hover{background:var(--rose);color:var(--bg);transform:translateY(-3px)}
+
+/* right — profile card */
+.hero-right{opacity:0;animation:cardIn 1s var(--ease) 2s forwards}
+@keyframes cardIn{from{opacity:0;transform:translateX(40px) rotate(2deg)}to{opacity:1;transform:none}}
+.profile-card{
+  background:var(--bg3);border:1px solid var(--bdr2);
+  border-radius:26px;padding:34px;
+  position:relative;overflow:hidden;
+  backdrop-filter:blur(16px);
+}
+.profile-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(198,255,62,.04),transparent);
+  pointer-events:none;
+}
+.pc-glow{
+  position:absolute;width:180px;height:180px;border-radius:50%;
+  background:var(--lime3);filter:blur(60px);
+  top:-60px;right:-60px;z-index:0;
+  animation:ob1 10s ease-in-out infinite;
+}
+.pc-body{position:relative;z-index:2}
+.pc-img-wrap{display:flex;justify-content:center;margin-bottom:22px}
+.pc-ring{
+  width:110px;height:110px;border-radius:50%;padding:2.5px;
+  background:conic-gradient(var(--lime),var(--viol),var(--rose),var(--cyan),var(--lime));
+  animation:spin 7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pc-ring-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--bg)}
+.pc-ring-inner img{width:100%;height:100%;object-fit:cover}
+.pc-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.22rem;letter-spacing:-0.02em;text-align:center;margin-bottom:3px}
+.pc-title{text-align:center;color:var(--txt2);font-size:.8rem;margin-bottom:6px}
+.pc-location{
+  text-align:center;color:var(--txt3);font-size:.73rem;
+  display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:20px;
+}
+.pc-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--bdr);border-radius:var(--rs);overflow:hidden;margin-bottom:18px;
+}
+.ps{background:var(--bg1);padding:14px 6px;text-align:center}
+.ps-n{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--lime);line-height:1;margin-bottom:3px}
+.ps-l{font-size:.63rem;color:var(--txt3);letter-spacing:.05em;text-transform:uppercase}
+.pc-avail{
+  background:rgba(198,255,62,.07);border:1px solid rgba(198,255,62,.18);
+  border-radius:100px;padding:9px 16px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-size:.75rem;font-weight:700;color:var(--lime);letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.pc-socials{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.soc{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg4);border:1px solid var(--bdr);
+  color:var(--txt2);transition:all .3s var(--ease);
+}
+.soc:hover{background:var(--lime2);border-color:var(--lime);color:var(--lime);transform:translateY(-3px) scale(1.08)}
+
+/* float tags on card */
+.ftag{
+  position:absolute;z-index:3;
+  background:rgba(13,13,24,.95);border:1px solid var(--bdr2);
+  border-radius:100px;padding:9px 14px;
+  display:flex;align-items:center;gap:8px;
+  font-size:.74rem;font-weight:700;
+  box-shadow:0 8px 30px rgba(0,0,0,.5);
+  white-space:nowrap;backdrop-filter:blur(8px);
+}
+.ft1{top:-18px;left:-22px;color:var(--lime);animation:fb1 4s ease-in-out infinite}
+.ft2{bottom:-16px;right:-16px;color:var(--viol);animation:fb2 5s ease-in-out infinite}
+.ft-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.ft1 .ft-dot{background:var(--lime)}
+.ft2 .ft-dot{background:var(--viol)}
+@keyframes fb1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes fb2{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* scroll arrow */
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:5;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0;animation:fu .6s var(--ease) 3.1s forwards;
+}
+.scroll-hint span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--txt3)}
+.scroll-mouse{width:22px;height:36px;border:1.5px solid var(--bdr2);border-radius:11px;
+  display:flex;justify-content:center;padding-top:5px}
+.scroll-mouse::after{
+  content:'';width:3px;height:7px;background:var(--lime);border-radius:2px;
+  animation:scd 2s ease-in-out infinite;
+}
+@keyframes scd{0%{transform:translateY(0);opacity:1}100%{transform:translateY(10px);opacity:0}}
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══════════════════════════ MARQUEE ══════════════════════════ */
+.marquee{
+  padding:13px 0;overflow:hidden;
+  background:var(--bg1);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);
+  position:relative;
+}
+.marquee::before,.marquee::after{
+  content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;
+}
+.marquee::before{left:0;background:linear-gradient(to right,var(--bg1),transparent)}
+.marquee::after{right:0;background:linear-gradient(to left,var(--bg1),transparent)}
+.mq-track{display:flex;animation:mq 24s linear infinite;width:max-content}
+.mq-item{
+  display:flex;align-items:center;gap:14px;padding:0 16px;
+  font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--txt3);white-space:nowrap;
+}
+.mq-item .md{width:4px;height:4px;background:var(--lime);border-radius:50%;flex-shrink:0}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ══════════════════════════ SECTION COMMONS ══════════════════════════ */
+.sec{padding:110px 48px;max-width:1180px;margin:0 auto}
+.sec-full{padding:110px 48px;background:var(--bg1)}
+.sec-inner{max-width:1180px;margin:0 auto}
+
+.lbl{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--lime);margin-bottom:16px;
+}
+.lbl::before{content:'';width:22px;height:1px;background:var(--lime)}
+.hd{
+  font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);
+  font-weight:800;letter-spacing:-0.04em;line-height:1.1;margin-bottom:14px;
+}
+.shd{color:var(--txt2);font-size:1rem;line-height:1.82;font-weight:300;max-width:560px;margin-bottom:52px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(38px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+/* ══════════════════════════ ABOUT ══════════════════════════ */
+.about-grid{display:grid;grid-template-columns:1.1fr 400px;gap:72px;align-items:start}
+.about-left h2{
+  font-family:'Syne',sans-serif;font-size:clamp(1.85rem,3.2vw,2.6rem);
+  font-weight:800;letter-spacing:-0.04em;line-height:1.15;margin-bottom:20px;
+}
+.about-left h2 em{color:var(--lime);font-style:normal}
+.about-left p{color:var(--txt2);font-size:.98rem;line-height:1.85;font-weight:300;margin-bottom:16px}
+.about-left p strong{color:var(--txt);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tag{
+  background:var(--bg3);border:1px solid var(--bdr);
+  padding:6px 14px;border-radius:100px;
+  font-size:.76rem;font-weight:600;color:var(--txt2);cursor:default;
+  transition:all .3s;
+}
+.tag:hover{border-color:var(--lime);color:var(--lime);background:var(--lime2)}
+.about-right{}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.sc-box{
+  background:var(--bg3);border:1px solid var(--bdr);
+  border-radius:var(--r);padding:26px 20px;
+  position:relative;overflow:hidden;
+  transition:all .4s var(--ease);
+}
+.sc-box::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--lime),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.sc-box:hover{border-color:rgba(198,255,62,.22);transform:translateY(-5px);box-shadow:0 18px 55px rgba(0,0,0,.4)}
+.sc-box:hover::after{transform:scaleX(1)}
+.sc-n{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--lime);line-height:1;margin-bottom:5px}
+.sc-l{color:var(--txt3);font-size:.78rem}
+.info-box{background:var(--bg3);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
+.info-row{display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--bdr)}
+.info-row:last-child{border-bottom:none}
+.ii{
+  width:36px;height:36px;border-radius:10px;flex-shrink:0;
+  background:var(--lime2);border:1px solid rgba(198,255,62,.15);
+  display:flex;align-items:center;justify-content:center;
+}
+.it small{color:var(--txt3);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:2px}
+.it strong{font-size:.85rem;font-weight:600}
+
+/* ══════════════════════════ SKILLS ══════════════════════════ */
+.sk-cats{display:flex;flex-direction:column;gap:44px}
+.sk-cat-label{
+  font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);
+  margin-bottom:16px;display:flex;align-items:center;gap:10px;
+}
+.sk-cat-label::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.sk-grid{display:flex;flex-wrap:wrap;gap:10px}
+.sk-card{
+  display:flex;align-items:center;gap:10px;
+  background:var(--bg3);border:1px solid var(--bdr);
+  border-radius:var(--rs);padding:12px 18px;
+  transition:all .3s var(--ease);cursor:default;
+}
+.sk-card:hover{border-color:rgba(198,255,62,.28);background:var(--lime2);transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.sk-ico{font-size:1.4rem}
+.sk-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:-0.01em}
+
+/* ══════════════════════════ EXPERIENCE ══════════════════════════ */
+.tl{padding-left:52px;position:relative;max-width:800px}
+.tl::before{
+  content:'';position:absolute;left:11px;top:10px;bottom:0;
+  width:1px;background:linear-gradient(to bottom,var(--lime) 0%,var(--bdr) 25%,var(--bdr));
+}
+.tl-e{position:relative;padding-bottom:52px}
+.tl-e:last-child{padding-bottom:0}
+.tl-dot{
+  position:absolute;left:-46px;top:7px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--lime);
+  box-shadow:0 0 18px var(--lime3);
+  transition:all .3s;
+}
+.tl-e:hover .tl-dot{background:var(--lime)}
+.tl-period{
+  font-size:.7rem;font-weight:700;color:var(--lime);letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:6px;display:flex;align-items:center;gap:8px;
+}
+.tl-now{
+  background:var(--lime2);border:1px solid rgba(198,255,62,.2);
+  color:var(--lime);padding:2px 10px;border-radius:100px;font-size:.63rem;font-weight:800;letter-spacing:.08em;
+}
+.tl-role{font-family:'Syne',sans-serif;font-size:1.22rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:3px}
+.tl-co{color:var(--viol);font-size:.88rem;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.tl-co-dot{width:4px;height:4px;border-radius:50%;background:var(--viol)}
+.tl-body{color:var(--txt2);font-size:.88rem;line-height:1.78;font-weight:300;margin-bottom:14px}
+.tl-achievements{margin-bottom:16px}
+.tl-achievements li{
+  color:var(--txt2);font-size:.85rem;line-height:1.7;font-weight:300;
+  padding-left:18px;position:relative;margin-bottom:6px;
+}
+.tl-achievements li::before{
+  content:'';position:absolute;left:0;top:.55em;
+  width:6px;height:6px;border-radius:50%;background:var(--lime);flex-shrink:0;
+}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tl-tag{
+  background:var(--bg3);border:1px solid var(--bdr);
+  padding:4px 12px;border-radius:100px;font-size:.7rem;font-weight:600;color:var(--txt2);
+}
+
+/* ══════════════════════════ PROJECTS ══════════════════════════ */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.proj-card{
+  background:var(--bg3);border:1px solid var(--bdr);
+  border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:all .4s var(--ease);
+  position:relative;
+}
+.proj-card:hover{border-color:rgba(198,255,62,.22);transform:translateY(-9px);box-shadow:0 28px 70px rgba(0,0,0,.5)}
+.proj-top{
+  padding:28px;border-bottom:1px solid var(--bdr);
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:12px;
+}
+.proj-emoji{font-size:2.5rem;line-height:1}
+.proj-arrow{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--bg4);border:1px solid var(--bdr2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--txt2);flex-shrink:0;
+  transition:all .3s var(--ease);
+}
+.proj-card:hover .proj-arrow{background:var(--lime);border-color:var(--lime);color:var(--bg);transform:rotate(45deg)}
+.proj-body{padding:24px;flex:1}
+.proj-cat{font-size:.65rem;font-weight:800;color:var(--lime);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.proj-title{font-family:'Syne',sans-serif;font-size:1.08rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:8px}
+.proj-desc{color:var(--txt2);font-size:.83rem;line-height:1.68;font-weight:300;margin-bottom:14px}
+.proj-tech{display:flex;flex-wrap:wrap;gap:6px}
+.pt{background:var(--bg4);border:1px solid var(--bdr);padding:3px 10px;border-radius:100px;font-size:.66rem;color:var(--txt3);font-weight:600}
+
+/* ══════════════════════════ CONTACT ══════════════════════════ */
+.contact-layout{display:grid;grid-template-columns:1fr 380px;gap:72px;align-items:start}
+.contact-left h2{font-family:'Syne',sans-serif;font-size:clamp(2.1rem,3.8vw,3.2rem);font-weight:800;letter-spacing:-0.04em;line-height:1.1;margin-bottom:18px}
+.contact-left h2 em{color:var(--lime);font-style:normal}
+.contact-left p{color:var(--txt2);font-size:.98rem;line-height:1.82;font-weight:300;margin-bottom:32px;max-width:460px}
+.cw-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.cw{
+  display:flex;align-items:center;gap:14px;
+  background:var(--bg3);border:1px solid var(--bdr);
+  border-radius:var(--rs);padding:16px 18px;
+  transition:all .35s var(--ease);
+}
+.cw:hover{border-color:rgba(198,255,62,.25);background:var(--lime2);transform:translateX(6px)}
+.cw-ico{
+  width:42px;height:42px;border-radius:11px;
+  background:var(--lime2);border:1px solid rgba(198,255,62,.15);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.cw-txt small{color:var(--txt3);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:2px}
+.cw-txt strong{font-size:.86rem;font-weight:600}
+.cta-box{
+  background:var(--bg3);border:1px solid var(--bdr2);
+  border-radius:var(--r);padding:36px;
+  position:relative;overflow:hidden;
+}
+.cta-box::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,var(--lime3),transparent 70%);
+  pointer-events:none;
+}
+.cta-box h3{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:10px}
+.cta-box p{color:var(--txt2);font-size:.87rem;line-height:1.72;font-weight:300;margin-bottom:24px}
+.cta-socials{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+
+/* ══════════════════════════ FOOTER ══════════════════════════ */
+footer{
+  padding:28px 48px;border-top:1px solid var(--bdr);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  font-size:.78rem;color:var(--txt3);
+}
+footer a{color:var(--lime)}
+.foot-links{display:flex;gap:20px}
+
+/* ══════════════════════════ RESPONSIVE ══════════════════════════ */
+@media(max-width:1100px){
+  .hero-wrap,.about-grid,.contact-layout{grid-template-columns:1fr}
+  .hero-right{display:none}
+}
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .nav-links{
+    display:none;position:fixed;inset:0;z-index:595;
+    background:rgba(7,7,14,.97);backdrop-filter:blur(24px);
+    flex-direction:column;align-items:center;justify-content:center;gap:32px;
+  }
+  .nav-links.op{display:flex}
+  .nav-links a{font-size:1.1rem}
+  .hbg{display:flex}
+  .hero{padding:90px 20px 70px}
+  .sec,.sec-full{padding:76px 20px}
+  .proj-grid{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  footer{padding:22px 20px}
+  .cur-dot,.cur-ring{display:none!important}
+  .hero-btns .btn{padding:12px 22px;font-size:.82rem}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-name">
+    <span class="lc" style="animation-delay:.04s">C</span><span class="lc" style="animation-delay:.09s">H</span><span class="lc" style="animation-delay:.14s">A</span><span class="lc" style="animation-delay:.19s">N</span><span class="lc" style="animation-delay:.24s">D</span><span class="lc" style="animation-delay:.29s">A</span><span class="lc" style="animation-delay:.34s">N</span>
+    &nbsp;
+    <span class="lc lime" style="animation-delay:.42s">S</span><span class="lc lime" style="animation-delay:.47s">I</span><span class="lc lime" style="animation-delay:.52s">N</span><span class="lc lime" style="animation-delay:.57s">G</span><span class="lc lime" style="animation-delay:.62s">H</span>
+  </div>
+  <div class="ld-prog"></div>
+  <div class="ld-label">Loading Portfolio...</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cur-dot" id="cDot"></div>
+<div class="cur-ring" id="cRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">CS<em>.</em></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+  </div>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ████ HERO ████ -->
+<section class="hero" id="hero">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+
+  <div class="hero-wrap">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="avail-badge"><span class="dot"></span>Immediate Joiner · Remote / Hybrid</div>
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name"><span class="g">Chandan Kumar Singh</span></h1>
+      <p class="hero-role">
+        Senior <span class="r">UI Developer</span> &amp; <span class="r">Frontend Engineer</span>
+      </p>
+      <p class="hero-desc">9+ years turning Figma designs into pixel-perfect, high-performance web apps. Expert in React, Angular, Next.js &amp; Vue.js — across FinTech, Crypto, Blockchain, SaaS &amp; Enterprise platforms.</p>
+      <div class="hero-contact">
+        <a href="mailto:singhchandan.singh3@gmail.com" class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          singhchandan.singh3@gmail.com
+        </a>
+        <a href="tel:+917992497677" class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 79924 97677
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=918287968224" target="_blank" class="chip">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2.008C6.478 2.008 2.002 6.483 2 12.003c-.001 1.95.546 3.844 1.582 5.48L2 22.002l4.635-1.567C8.176 21.455 10.073 22 11.999 22c5.522 0 9.999-4.477 10-9.999 0-5.523-4.478-9.993-10.001-9.993z" fill-rule="evenodd"/></svg>
+          +91 82879 68224
+        </a>
+      </div>
+      <div class="hero-btns">
+        <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="btn bl">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Portfolio
+        </a>
+        <a href="https://chandansinghdesigner.github.io/chandan-singh/chandan-resume.pdf" target="_blank" class="btn bg">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+        <a href="https://www.linkedin.com/in/chandansinghdesigner" target="_blank" class="btn br">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT — Profile Card -->
+    <div class="hero-right">
+      <div style="position:relative">
+        <div class="ftag ft1"><span class="ft-dot"></span>React · Angular · Next.js</div>
+        <div class="ftag ft2"><span class="ft-dot"></span>9+ Years Experience</div>
+        <div class="profile-card">
+          <div class="pc-glow"></div>
+          <div class="pc-body">
+            <div class="pc-img-wrap">
+              <div class="pc-ring"><div class="pc-ring-inner"><img src="https://avatars.githubusercontent.com/u/32226098?v=4" alt="Chandan Kumar Singh"></div></div>
+            </div>
+            <div class="pc-name">Chandan Kumar Singh</div>
+            <div class="pc-title">Senior UI Developer · Frontend Engineer</div>
+            <div class="pc-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Delhi, India
+            </div>
+            <div class="pc-stats">
+              <div class="ps"><div class="ps-n">9+</div><div class="ps-l">Years</div></div>
+              <div class="ps"><div class="ps-n">50+</div><div class="ps-l">Projects</div></div>
+              <div class="ps"><div class="ps-n">30+</div><div class="ps-l">Clients</div></div>
+            </div>
+            <div class="pc-avail"><span style="width:7px;height:7px;border-radius:50%;background:var(--lime);display:inline-block;position:relative"><span style="position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--lime);animation:ping 2s ease-in-out infinite"></span></span>Immediate Joiner</div>
+            <div class="pc-socials">
+              <a href="https://www.linkedin.com/in/chandansinghdesigner" target="_blank" class="soc" title="LinkedIn">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://github.com/chandansinghdesigner/" target="_blank" class="soc" title="GitHub">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+              <a href="https://codepen.io/chandan-singh" target="_blank" class="soc" title="CodePen">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.144 13.067v-2.134L16.55 12zm1.856 1.018V9.915L22 8.258v7.484zm-9-11.395L22 9.915l-2.143 1.527-4.857-3.457zM3.856 14.085V9.915L2 8.258v7.484zm7.144 7.225L0 14.085l2.143-1.527 4.857 3.457zM12 12.61l-4.286-3.053L12 6.504l4.286 3.053zm0-12.22L0 9.915v4.17l12 7.225 12-7.225v-4.17z"/></svg>
+              </a>
+              <a href="https://www.behance.net/chandansinghd" target="_blank" class="soc" title="Behance">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.938 4.503c.702 0 1.34.06 1.92.188.577.13 1.07.33 1.485.61.41.28.733.65.96 1.12.225.47.34 1.05.34 1.73 0 .74-.17 1.36-.507 1.86-.338.5-.837.9-1.502 1.22.906.26 1.576.72 2.022 1.37.448.66.665 1.45.665 2.36 0 .75-.13 1.39-.41 1.93-.28.55-.67 1-1.16 1.35-.48.35-1.05.6-1.67.77-.66.16-1.32.25-2.01.25H0V4.51h6.938v-.007zM6.545 10.16c.6 0 1.09-.15 1.47-.45.38-.3.56-.74.56-1.34 0-.34-.07-.63-.18-.85-.12-.22-.29-.39-.5-.52-.21-.13-.46-.22-.74-.27-.28-.05-.57-.07-.87-.07H3.49v3.5h3.055zm.21 5.69c.33 0 .65-.03.96-.09.31-.06.58-.16.82-.31.24-.15.43-.36.57-.63.14-.27.21-.61.21-1.02 0-.81-.24-1.39-.71-1.74-.47-.34-1.1-.51-1.87-.51H3.49v4.3h3.27zm9.41-7.54c.68 0 1.3.13 1.87.4.57.27 1.06.63 1.47 1.1.41.47.73 1.03.95 1.68.22.65.33 1.36.33 2.12 0 .18-.01.33-.02.47H14.05c.05.87.34 1.52.88 1.97.54.44 1.2.66 1.97.66.59 0 1.1-.15 1.54-.46.43-.3.73-.63.87-.98h2.8c-.44 1.33-1.13 2.3-2.07 2.94-.94.63-2.07.95-3.39.95-.92 0-1.76-.16-2.53-.48-.77-.32-1.43-.77-1.98-1.34-.55-.57-.98-1.26-1.3-2.06-.31-.8-.47-1.69-.47-2.66 0-.93.16-1.8.48-2.59.32-.79.76-1.47 1.33-2.05.57-.58 1.24-1.03 2.02-1.35.78-.32 1.63-.48 2.55-.48zm2.55 4.24c-.1-.77-.4-1.39-.92-1.84-.52-.45-1.17-.68-1.95-.68-.45 0-.85.08-1.2.25-.35.17-.64.38-.87.66-.24.27-.42.58-.55.92-.13.34-.2.67-.22 1.01h5.71zm-2.4-5.89h-5.14v1.53h5.14V6.66z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/chandansinghdesigner/" target="_blank" class="soc" title="Facebook">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-mouse"></div></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="mq-track">
+    <div class="mq-item"><span class="md"></span>React.js</div>
+    <div class="mq-item"><span class="md"></span>Angular</div>
+    <div class="mq-item"><span class="md"></span>Next.js</div>
+    <div class="mq-item"><span class="md"></span>Vue.js</div>
+    <div class="mq-item"><span class="md"></span>TypeScript</div>
+    <div class="mq-item"><span class="md"></span>JavaScript ES6+</div>
+    <div class="mq-item"><span class="md"></span>Tailwind CSS</div>
+    <div class="mq-item"><span class="md"></span>Material UI</div>
+    <div class="mq-item"><span class="md"></span>Figma to Code</div>
+    <div class="mq-item"><span class="md"></span>REST API Integration</div>
+    <div class="mq-item"><span class="md"></span>WCAG Accessibility</div>
+    <div class="mq-item"><span class="md"></span>Performance Optimization</div>
+    <div class="mq-item"><span class="md"></span>Pixel Perfect UI</div>
+    <!-- duplicate -->
+    <div class="mq-item"><span class="md"></span>React.js</div>
+    <div class="mq-item"><span class="md"></span>Angular</div>
+    <div class="mq-item"><span class="md"></span>Next.js</div>
+    <div class="mq-item"><span class="md"></span>Vue.js</div>
+    <div class="mq-item"><span class="md"></span>TypeScript</div>
+    <div class="mq-item"><span class="md"></span>JavaScript ES6+</div>
+    <div class="mq-item"><span class="md"></span>Tailwind CSS</div>
+    <div class="mq-item"><span class="md"></span>Material UI</div>
+    <div class="mq-item"><span class="md"></span>Figma to Code</div>
+    <div class="mq-item"><span class="md"></span>REST API Integration</div>
+    <div class="mq-item"><span class="md"></span>WCAG Accessibility</div>
+    <div class="mq-item"><span class="md"></span>Performance Optimization</div>
+    <div class="mq-item"><span class="md"></span>Pixel Perfect UI</div>
+  </div>
+</div>
+
+<!-- ████ ABOUT ████ -->
+<section class="sec" id="about">
+  <div class="lbl rv">About Me</div>
+  <div class="about-grid">
+    <div class="about-left rv">
+      <h2>Building interfaces people <em>love</em> to use</h2>
+      <p>I'm <strong>Chandan Kumar Singh</strong> — a Senior UI Developer &amp; Frontend Engineer with <strong>9+ years of hands-on experience</strong> building high-quality web &amp; mobile UI applications. Currently at <strong>INTO3.ai</strong> (Jan 2026–Present), previously <strong>ITH Technologies Pvt Ltd</strong> (2017–2025).</p>
+      <p>My core strength is <strong>converting Figma designs into pixel-perfect, responsive, production-ready UI</strong> using React, Angular, Next.js, and Vue.js. I build reusable component architectures, integrate REST APIs seamlessly, and deliver WCAG-compliant interfaces optimized for performance.</p>
+      <p>I've worked across <strong>FinTech, Crypto, Blockchain, Marketplace, SaaS, and Enterprise</strong> platforms — understanding the unique design requirements each domain demands.</p>
+      <div class="tags">
+        <span class="tag">React.js</span>
+        <span class="tag">Angular</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Vue.js</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Figma → Code</span>
+        <span class="tag">Design Systems</span>
+        <span class="tag">WCAG / A11y</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Performance Opt.</span>
+        <span class="tag">Agile / Scrum</span>
+        <span class="tag">FinTech UI</span>
+        <span class="tag">Crypto / Blockchain</span>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="stat-grid rv d2">
+        <div class="sc-box"><div class="sc-n">9+</div><div class="sc-l">Years Experience</div></div>
+        <div class="sc-box"><div class="sc-n">50+</div><div class="sc-l">Projects Delivered</div></div>
+        <div class="sc-box"><div class="sc-n">30+</div><div class="sc-l">Happy Clients</div></div>
+        <div class="sc-box"><div class="sc-n">30%</div><div class="sc-l">Dev Time Reduced</div></div>
+      </div>
+      <div class="info-box rv d3">
+        <div class="info-row">
+          <div class="ii"><svg width="16" height="16" fill="none" stroke="var(--lime)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="it"><small>Location</small><strong>Delhi, India</strong></div>
+        </div>
+        <div class="info-row">
+          <div class="ii"><svg width="16" height="16" fill="none" stroke="var(--lime)" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+          <div class="it"><small>Current Company</small><strong>INTO3.ai (Jan 2026–Present)</strong></div>
+        </div>
+        <div class="info-row">
+          <div class="ii"><svg width="16" height="16" fill="none" stroke="var(--lime)" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+          <div class="it"><small>Previous Company</small><strong>ITH Technologies Pvt Ltd</strong></div>
+        </div>
+        <div class="info-row">
+          <div class="ii"><svg width="16" height="16" fill="none" stroke="var(--lime)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <div class="it"><small>Education</small><strong>MCA — KSOU | B.Sc IT — NIIT</strong></div>
+        </div>
+        <div class="info-row">
+          <div class="ii"><svg width="16" height="16" fill="none" stroke="var(--lime)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="it"><small>Certification</small><strong>Microsoft: HTML5, CSS3, JavaScript</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ████ SKILLS ████ -->
+<div class="sec-full" id="skills">
+  <div class="sec-inner">
+    <div class="lbl rv">Tech Stack</div>
+    <h2 class="hd rv">Tools &amp; Technologies</h2>
+    <p class="shd rv">My full arsenal for crafting world-class frontend experiences — from design to deployment.</p>
+    <div class="sk-cats rv">
+      <div>
+        <div class="sk-cat-label">Frontend Frameworks</div>
+        <div class="sk-grid">
+          <div class="sk-card"><span class="sk-ico">⚛️</span><span class="sk-name">React.js</span></div>
+          <div class="sk-card"><span class="sk-ico">🅰️</span><span class="sk-name">Angular</span></div>
+          <div class="sk-card"><span class="sk-ico">▲</span><span class="sk-name">Next.js</span></div>
+          <div class="sk-card"><span class="sk-ico">💚</span><span class="sk-name">Vue.js</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sk-cat-label">Languages</div>
+        <div class="sk-grid">
+          <div class="sk-card"><span class="sk-ico">✨</span><span class="sk-name">JavaScript ES6+</span></div>
+          <div class="sk-card"><span class="sk-ico">🔷</span><span class="sk-name">TypeScript</span></div>
+          <div class="sk-card"><span class="sk-ico">🌐</span><span class="sk-name">HTML5</span></div>
+          <div class="sk-card"><span class="sk-ico">🎨</span><span class="sk-name">CSS3 / SCSS</span></div>
+          <div class="sk-card"><span class="sk-ico">🏷️</span><span class="sk-name">jQuery</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sk-cat-label">UI Libraries &amp; Styling</div>
+        <div class="sk-grid">
+          <div class="sk-card"><span class="sk-ico">💨</span><span class="sk-name">Tailwind CSS</span></div>
+          <div class="sk-card"><span class="sk-ico">🎯</span><span class="sk-name">Bootstrap</span></div>
+          <div class="sk-card"><span class="sk-ico">🌊</span><span class="sk-name">Material UI</span></div>
+          <div class="sk-card"><span class="sk-ico">📱</span><span class="sk-name">Responsive Design</span></div>
+          <div class="sk-card"><span class="sk-ico">♿</span><span class="sk-name">WCAG A11y</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sk-cat-label">Tools &amp; Workflow</div>
+        <div class="sk-grid">
+          <div class="sk-card"><span class="sk-ico">🎭</span><span class="sk-name">Figma</span></div>
+          <div class="sk-card"><span class="sk-ico">🐙</span><span class="sk-name">Git / GitHub</span></div>
+          <div class="sk-card"><span class="sk-ico">📬</span><span class="sk-name">Postman</span></div>
+          <div class="sk-card"><span class="sk-ico">📋</span><span class="sk-name">Jira</span></div>
+          <div class="sk-card"><span class="sk-ico">🔄</span><span class="sk-name">Agile / Scrum</span></div>
+          <div class="sk-card"><span class="sk-ico">🔍</span><span class="sk-name">SEO-Friendly Dev</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ████ EXPERIENCE ████ -->
+<section class="sec" id="experience">
+  <div class="lbl rv">Career</div>
+  <h2 class="hd rv">Professional Journey</h2>
+  <p class="shd rv">Nearly a decade of shipping production-quality UI across diverse industries and platforms.</p>
+
+  <div class="tl rv">
+    <!-- INTO3.ai -->
+    <div class="tl-e">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Jan 2026 — Present <span class="tl-now">Current</span></div>
+      <div class="tl-role">Senior UI Developer</div>
+      <div class="tl-co"><span class="tl-co-dot"></span>INTO3.ai</div>
+      <div class="tl-body">Building responsive user dashboards by converting Figma designs into React.js components with reusable, scalable UI patterns. Implementing mobile-first layouts ensuring cross-device and cross-browser compatibility. Integrating APIs for dynamic data rendering and collaborating with designers &amp; backend teams to deliver production-ready UI.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">React.js</span>
+        <span class="tl-tag">Figma → Code</span>
+        <span class="tl-tag">REST APIs</span>
+        <span class="tl-tag">Mobile-First</span>
+        <span class="tl-tag">Cross-Browser</span>
+      </div>
+    </div>
+
+    <!-- ITH Technologies -->
+    <div class="tl-e">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Nov 2017 — Jul 2025</div>
+      <div class="tl-role">Senior UI Developer</div>
+      <div class="tl-co"><span class="tl-co-dot"></span>ITH Technologies Pvt Ltd</div>
+      <div class="tl-body">Converted Figma designs into responsive, production-ready UI using React, Angular, Next.js &amp; Vue.js. Built scalable and reusable UI components aligned with modern design systems. Collaborated closely with designers, backend developers, and product teams to deliver high-quality UI with pixel-perfect layouts, cross-browser compatibility, and mobile-first responsiveness.</div>
+      <ul class="tl-achievements">
+        <li>Led a complete UI redesign of the company portal — improving usability, accessibility, and responsiveness</li>
+        <li>Reduced development time by <strong>30–40%</strong> by creating a reusable component library</li>
+        <li>Improved page load speed &amp; UI responsiveness through performance optimization</li>
+        <li>Established consistent UI standards and design systems across multiple applications</li>
+        <li>Delivered WCAG-compliant, cross-device &amp; cross-browser user interfaces</li>
+        <li>Designed marketing assets (banners, newsletters, infographics) for brand engagement</li>
+      </ul>
+      <div class="tl-tags">
+        <span class="tl-tag">React</span>
+        <span class="tl-tag">Angular</span>
+        <span class="tl-tag">Next.js</span>
+        <span class="tl-tag">Vue.js</span>
+        <span class="tl-tag">TypeScript</span>
+        <span class="tl-tag">Design Systems</span>
+        <span class="tl-tag">WCAG</span>
+      </div>
+    </div>
+
+    <!-- Razors Software -->
+    <div class="tl-e">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Mar 2016 — Oct 2017</div>
+      <div class="tl-role">Web Designer</div>
+      <div class="tl-co"><span class="tl-co-dot"></span>Razors Software Pvt Ltd</div>
+      <div class="tl-body">Converted PSD to responsive HTML5/CSS3 with pixel-perfect accuracy. Worked on CMS-based projects, customising UI components and templates. Designed landing pages, dashboards, and reusable UI templates. Improved SEO structure, UX flow, and UI consistency. Contributed to the New Holland website (PSD to HTML in ASP.NET environment). Ensured cross-browser compatibility and mobile responsiveness.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">HTML5</span>
+        <span class="tl-tag">CSS3</span>
+        <span class="tl-tag">PSD to HTML</span>
+        <span class="tl-tag">CMS</span>
+        <span class="tl-tag">SEO</span>
+        <span class="tl-tag">WordPress</span>
+        <span class="tl-tag">ASP.NET</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ████ PROJECTS ████ -->
+<div class="sec-full" id="projects">
+  <div class="sec-inner">
+    <div class="lbl rv">Selected Work</div>
+    <h2 class="hd rv">Featured Projects</h2>
+    <p class="shd rv">Real client projects spanning FinTech, Crypto, SaaS, Marketplace &amp; Enterprise platforms.</p>
+    <div class="proj-grid rv">
+
+      <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="proj-card">
+        <div class="proj-top">
+          <span class="proj-emoji">🤖</span>
+          <div class="proj-arrow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">React.js · AI Platform</div>
+          <div class="proj-title">INTO3.AI — User Dashboard</div>
+          <div class="proj-desc">Responsive user dashboard built from Figma designs into React components with mobile-first layouts, API integration, and cross-browser compatibility.</div>
+          <div class="proj-tech"><span class="pt">React.js</span><span class="pt">Figma</span><span class="pt">REST APIs</span><span class="pt">Mobile-First</span></div>
+        </div>
+      </a>
+
+      <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="proj-card">
+        <div class="proj-top">
+          <span class="proj-emoji">📊</span>
+          <div class="proj-arrow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">Next.js · FinTech</div>
+          <div class="proj-title">TDX — Trading Dashboard</div>
+          <div class="proj-desc">Fully responsive User Dashboard UI built with Next.js, converting Figma designs to production-ready UI with modern frontend best practices.</div>
+          <div class="proj-tech"><span class="pt">Next.js</span><span class="pt">TypeScript</span><span class="pt">Figma</span><span class="pt">Responsive</span></div>
+        </div>
+      </a>
+
+      <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="proj-card">
+        <div class="proj-top">
+          <span class="proj-emoji">🏢</span>
+          <div class="proj-arrow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">React.js · SaaS</div>
+          <div class="proj-title">Bizthon — Corporate &amp; Dashboard</div>
+          <div class="proj-desc">Landing pages and dashboards using React.js &amp; Tailwind CSS with API integration and improved UX for high-traffic user flows.</div>
+          <div class="proj-tech"><span class="pt">React.js</span><span class="pt">Tailwind CSS</span><span class="pt">APIs</span><span class="pt">UX</span></div>
+        </div>
+      </a>
+
+      <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="proj-card">
+        <div class="proj-top">
+          <span class="proj-emoji">🐕</span>
+          <div class="proj-arrow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">Angular · Trading Platform</div>
+          <div class="proj-title">Trade Dog — Web &amp; Dashboard</div>
+          <div class="proj-desc">Responsive UI for web and dashboard apps using Angular. Login &amp; User Dashboard modules with reusable components, accessibility, and cross-browser support.</div>
+          <div class="proj-tech"><span class="pt">Angular</span><span class="pt">TypeScript</span><span class="pt">SCSS</span><span class="pt">A11y</span></div>
+        </div>
+      </a>
+
+      <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="proj-card">
+        <div class="proj-top">
+          <span class="proj-emoji">₿</span>
+          <div class="proj-arrow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">Crypto · Blockchain</div>
+          <div class="proj-title">TDMM — Trading &amp; Crypto Platform</div>
+          <div class="proj-desc">Reusable UI components aligned with design systems. Enhanced UI interactivity for a crypto &amp; trading platform using JavaScript &amp; jQuery.</div>
+          <div class="proj-tech"><span class="pt">JavaScript</span><span class="pt">jQuery</span><span class="pt">Design Systems</span><span class="pt">Crypto UI</span></div>
+        </div>
+      </a>
+
+      <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="proj-card">
+        <div class="proj-top">
+          <span class="proj-emoji">🛍️</span>
+          <div class="proj-arrow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">Angular · Marketplace</div>
+          <div class="proj-title">Aiofans Marketplace</div>
+          <div class="proj-desc">Dynamic UI using Angular + REST APIs for a marketplace platform. Ensured seamless mobile responsiveness and optimised loading speed for high-traffic flows.</div>
+          <div class="proj-tech"><span class="pt">Angular</span><span class="pt">REST APIs</span><span class="pt">Mobile-First</span><span class="pt">Performance</span></div>
+        </div>
+      </a>
+
+      <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="proj-card">
+        <div class="proj-top">
+          <span class="proj-emoji">💼</span>
+          <div class="proj-arrow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">React · Bootstrap · Hiring</div>
+          <div class="proj-title">Recru.in — Hiring Platform</div>
+          <div class="proj-desc">Website and dashboard UI using React &amp; Bootstrap for a hiring platform. Improved onboarding UX in close collaboration with product designers.</div>
+          <div class="proj-tech"><span class="pt">React</span><span class="pt">Bootstrap</span><span class="pt">UX</span><span class="pt">Dashboard</span></div>
+        </div>
+      </a>
+
+      <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="proj-card">
+        <div class="proj-top">
+          <span class="proj-emoji">🏛️</span>
+          <div class="proj-arrow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">HTML · CSS · Enterprise</div>
+          <div class="proj-title">TD Ventures — Corporate Website</div>
+          <div class="proj-desc">Clean, SEO-friendly corporate website using HTML, CSS, and Bootstrap. Focused on UI consistency, performance, and cross-browser compatibility.</div>
+          <div class="proj-tech"><span class="pt">HTML5</span><span class="pt">CSS3</span><span class="pt">Bootstrap</span><span class="pt">SEO</span></div>
+        </div>
+      </a>
+
+      <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" class="proj-card">
+        <div class="proj-top">
+          <span class="proj-emoji">🔐</span>
+          <div class="proj-arrow"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">Crypto · Wallet · FinTech</div>
+          <div class="proj-title">Crypto Bulls — Banking &amp; Wallet</div>
+          <div class="proj-desc">UI for crypto banking and wallet features with focus on clarity, security-first design language, and full responsiveness across all device sizes.</div>
+          <div class="proj-tech"><span class="pt">React</span><span class="pt">Crypto UI</span><span class="pt">Wallet</span><span class="pt">Responsive</span></div>
+        </div>
+      </a>
+
+    </div>
+    <p style="color:var(--txt3);font-size:.82rem;margin-top:24px;text-align:center">
+      👉 All project URLs available at <a href="https://chandansinghdesigner.github.io/chandan-singh/portfolio/index.html" target="_blank" style="color:var(--lime)">chandansinghdesigner.github.io/chandan-singh/</a>
+    </p>
+  </div>
+</div>
+
+<!-- ████ CONTACT ████ -->
+<section class="sec" id="contact">
+  <div class="lbl rv">Contact</div>
+  <div class="contact-layout">
+    <div class="contact-left rv">
+      <h2>Let's Build Something <em>Great</em> Together</h2>
+      <p>Got a project, a role, or just want to collaborate? I'm an immediate joiner open to remote and hybrid opportunities. Let's connect!</p>
+      <div class="cw-list">
+        <a href="mailto:singhchandan.singh3@gmail.com" class="cw">
+          <div class="cw-ico"><svg width="17" height="17" fill="none" stroke="var(--lime)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="cw-txt"><small>Email</small><strong>singhchandan.singh3@gmail.com</strong></div>
+        </a>
+        <a href="tel:+917992497677" class="cw">
+          <div class="cw-ico"><svg width="17" height="17" fill="none" stroke="var(--lime)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="cw-txt"><small>Phone 1</small><strong>+91 79924 97677</strong></div>
+        </a>
+        <a href="tel:+918287968224" class="cw">
+          <div class="cw-ico"><svg width="17" height="17" fill="none" stroke="var(--lime)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="cw-txt"><small>Phone 2 / WhatsApp</small><strong>+91 82879 68224</strong></div>
+        </a>
+        <a href="https://www.linkedin.com/in/chandansinghdesigner" target="_blank" class="cw">
+          <div class="cw-ico"><svg width="17" height="17" fill="var(--lime)" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+          <div class="cw-txt"><small>LinkedIn</small><strong>linkedin.com/in/chandansinghdesigner</strong></div>
+        </a>
+        <a href="https://chandansinghdesigner.github.io/chandan-singh/" target="_blank" class="cw">
+          <div class="cw-ico"><svg width="17" height="17" fill="none" stroke="var(--lime)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <div class="cw-txt"><small>Portfolio</small><strong>chandansinghdesigner.github.io/chandan-singh</strong></div>
+        </a>
+      </div>
+    </div>
+    <div class="rv d2">
+      <div class="cta-box">
+        <h3>Ready to collaborate?</h3>
+        <p>Whether it's a full product build, a design system, or a new team role — I'm excited and ready to deliver from Day 1.</p>
+        <a href="mailto:singhchandan.singh3@gmail.com" class="btn bl" style="width:100%;justify-content:center">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+          Send Me a Message
+        </a>
+        <div class="cta-socials">
+          <a href="https://www.linkedin.com/in/chandansinghdesigner" target="_blank" class="soc"><svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://github.com/chandansinghdesigner/" target="_blank" class="soc"><svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+          <a href="https://www.behance.net/chandansinghd" target="_blank" class="soc"><svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M6.938 4.503c.702 0 1.34.06 1.92.188.577.13 1.07.33 1.485.61.41.28.733.65.96 1.12.225.47.34 1.05.34 1.73 0 .74-.17 1.36-.507 1.86-.338.5-.837.9-1.502 1.22.906.26 1.576.72 2.022 1.37.448.66.665 1.45.665 2.36 0 .75-.13 1.39-.41 1.93-.28.55-.67 1-1.16 1.35-.48.35-1.05.6-1.67.77-.66.16-1.32.25-2.01.25H0V4.51h6.938v-.007zM6.545 10.16c.6 0 1.09-.15 1.47-.45.38-.3.56-.74.56-1.34 0-.34-.07-.63-.18-.85-.12-.22-.29-.39-.5-.52-.21-.13-.46-.22-.74-.27-.28-.05-.57-.07-.87-.07H3.49v3.5h3.055zm.21 5.69c.33 0 .65-.03.96-.09.31-.06.58-.16.82-.31.24-.15.43-.36.57-.63.14-.27.21-.61.21-1.02 0-.81-.24-1.39-.71-1.74-.47-.34-1.1-.51-1.87-.51H3.49v4.3h3.27zm9.41-7.54c.68 0 1.3.13 1.87.4.57.27 1.06.63 1.47 1.1.41.47.73 1.03.95 1.68.22.65.33 1.36.33 2.12 0 .18-.01.33-.02.47H14.05c.05.87.34 1.52.88 1.97.54.44 1.2.66 1.97.66.59 0 1.1-.15 1.54-.46.43-.3.73-.63.87-.98h2.8c-.44 1.33-1.13 2.3-2.07 2.94-.94.63-2.07.95-3.39.95-.92 0-1.76-.16-2.53-.48-.77-.32-1.43-.77-1.98-1.34-.55-.57-.98-1.26-1.3-2.06-.31-.8-.47-1.69-.47-2.66 0-.93.16-1.8.48-2.59.32-.79.76-1.47 1.33-2.05.57-.58 1.24-1.03 2.02-1.35.78-.32 1.63-.48 2.55-.48zm2.55 4.24c-.1-.77-.4-1.39-.92-1.84-.52-.45-1.17-.68-1.95-.68-.45 0-.85.08-1.2.25-.35.17-.64.38-.87.66-.24.27-.42.58-.55.92-.13.34-.2.67-.22 1.01h5.71zm-2.4-5.89h-5.14v1.53h5.14V6.66z"/></svg></a>
+          <a href="https://codepen.io/chandan-singh" target="_blank" class="soc"><svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M18.144 13.067v-2.134L16.55 12zm1.856 1.018V9.915L22 8.258v7.484zm-9-11.395L22 9.915l-2.143 1.527-4.857-3.457zM3.856 14.085V9.915L2 8.258v7.484zm7.144 7.225L0 14.085l2.143-1.527 4.857 3.457zM12 12.61l-4.286-3.053L12 6.504l4.286 3.053zm0-12.22L0 9.915v4.17l12 7.225 12-7.225v-4.17z"/></svg></a>
+          <a href="https://www.facebook.com/chandansinghdesigner/" target="_blank" class="soc"><svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>&copy; 2026 <a href="#">Chandan Kumar Singh</a> · Senior UI Developer · Delhi, India</span>
+  <div class="foot-links">
+    <a href="https://www.linkedin.com/in/chandansinghdesigner" target="_blank">LinkedIn</a>
+    <a href="https://github.com/chandansinghdesigner/" target="_blank">GitHub</a>
+    <a href="https://www.behance.net/chandansinghd" target="_blank">Behance</a>
+    <a href="https://chandansinghdesigner.github.io/chandan-singh/" target="_blank">Portfolio</a>
+  </div>
+</footer>
+
+<script>
+/* LOADER */
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('out'),1700));
+
+/* CURSOR */
+const cd=document.getElementById('cDot'),cr=document.getElementById('cRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,.sk-card,.proj-card,.sc-box,.cw,.soc,.chip').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cur-hover'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-hover'));
+});
+
+/* NAV */
+const nav=document.getElementById('nav'),hbg=document.getElementById('hbg'),nl=document.getElementById('navLinks');
+let ly=0;
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  nav.classList.toggle('sc',y>40);
+  nav.classList.toggle('hi',y>ly&&y>120);
+  ly=y;
+});
+hbg.addEventListener('click',()=>{hbg.classList.toggle('on');nl.classList.toggle('op')});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hbg.classList.remove('on');nl.classList.remove('op')}));
+
+/* REVEAL */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();const t=document.querySelector(a.getAttribute('href'));
+  if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+}));
+
+/* SKILL STAGGER */
+document.querySelectorAll('.sk-card').forEach((c,i)=>c.style.transitionDelay=(i*.03)+'s');
+</script>
+</body>
+</html>
