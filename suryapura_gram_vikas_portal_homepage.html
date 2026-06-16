@@ -1,0 +1,345 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&display=swap');
+  .sp-hindi { font-family: 'Tiro Devanagari Hindi', serif; }
+  .sp-nav { display:flex; align-items:center; justify-content:space-between; padding:14px 28px; background:var(--color-background-primary); border-bottom:0.5px solid var(--color-border-tertiary); position:sticky; top:0; z-index:10; }
+  .sp-logo { display:flex; align-items:center; gap:10px; }
+  .sp-logo-circle { width:36px; height:36px; border-radius:50%; background:#1D6B3A; display:flex; align-items:center; justify-content:center; }
+  .sp-logo-text { font-size:15px; font-weight:500; color:var(--color-text-primary); }
+  .sp-logo-sub { font-size:11px; color:var(--color-text-secondary); margin-top:1px; }
+  .sp-nav-links { display:flex; gap:20px; font-size:13px; color:var(--color-text-secondary); }
+  .sp-nav-links span { cursor:pointer; }
+  .sp-nav-links span:hover { color:var(--color-text-primary); }
+  .sp-hero { background:#0F3D24; padding:48px 28px 36px; position:relative; overflow:hidden; }
+  .sp-hero-tag { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.12); border:0.5px solid rgba(255,255,255,0.2); border-radius:20px; padding:5px 14px; font-size:12px; color:rgba(255,255,255,0.85); margin-bottom:20px; }
+  .sp-hero h1 { font-size:28px; font-weight:500; color:#fff; line-height:1.35; margin:0 0 12px; }
+  .sp-hero p { font-size:14px; color:rgba(255,255,255,0.72); line-height:1.7; margin:0 0 24px; max-width:480px; }
+  .sp-hero-btns { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:32px; }
+  .sp-btn-primary { background:#F4C232; color:#1a1a00; border:none; border-radius:8px; padding:10px 20px; font-size:13px; font-weight:500; cursor:pointer; }
+  .sp-btn-secondary { background:transparent; color:#fff; border:0.5px solid rgba(255,255,255,0.35); border-radius:8px; padding:10px 20px; font-size:13px; cursor:pointer; }
+  .sp-stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:8px; }
+  .sp-stat { background:rgba(255,255,255,0.09); border:0.5px solid rgba(255,255,255,0.15); border-radius:10px; padding:14px 12px; text-align:center; }
+  .sp-stat-num { font-size:20px; font-weight:500; color:#F4C232; }
+  .sp-stat-lbl { font-size:11px; color:rgba(255,255,255,0.6); margin-top:3px; }
+  .sp-hero-deco { position:absolute; right:-40px; top:-20px; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,0.03); border:0.5px solid rgba(255,255,255,0.06); }
+  .sp-hero-deco2 { position:absolute; right:40px; top:40px; width:160px; height:160px; border-radius:50%; background:rgba(255,255,255,0.04); border:0.5px solid rgba(255,255,255,0.06); }
+  .sp-section { padding:28px 28px 20px; }
+  .sp-section-title { font-size:16px; font-weight:500; color:var(--color-text-primary); margin:0 0 4px; }
+  .sp-section-sub { font-size:12px; color:var(--color-text-secondary); margin:0 0 18px; }
+  .sp-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .sp-card { background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:12px; padding:16px; }
+  .sp-card-icon { width:36px; height:36px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:10px; }
+  .sp-card h3 { font-size:14px; font-weight:500; color:var(--color-text-primary); margin:0 0 4px; }
+  .sp-card p { font-size:12px; color:var(--color-text-secondary); margin:0 0 10px; line-height:1.6; }
+  .sp-progress { height:5px; background:var(--color-background-secondary); border-radius:3px; overflow:hidden; }
+  .sp-progress-fill { height:100%; border-radius:3px; }
+  .sp-progress-label { display:flex; justify-content:space-between; font-size:11px; color:var(--color-text-secondary); margin-top:4px; }
+  .sp-leader { background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:12px; padding:18px; display:flex; gap:14px; align-items:flex-start; margin:16px 0; }
+  .sp-avatar { width:52px; height:52px; border-radius:50%; background:#1D6B3A; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; color:#fff; font-weight:500; }
+  .sp-leader-info h3 { font-size:15px; font-weight:500; color:var(--color-text-primary); margin:0 0 2px; }
+  .sp-leader-info .sp-role { font-size:11px; color:#1D6B3A; font-weight:500; margin:0 0 6px; }
+  .sp-leader-info p { font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6; }
+  .sp-badge { display:inline-flex; align-items:center; gap:4px; background:#E8F5E9; color:#1D6B3A; font-size:11px; padding:3px 10px; border-radius:20px; margin-right:4px; margin-top:6px; }
+  .sp-social-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .sp-social-post { border-radius:12px; padding:16px; position:relative; overflow:hidden; }
+  .sp-post-1 { background:#0F3D24; }
+  .sp-post-2 { background:#1A3A5C; }
+  .sp-post-header { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+  .sp-post-logo { width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:12px; }
+  .sp-post-name { font-size:11px; color:rgba(255,255,255,0.7); }
+  .sp-post-content h4 { font-size:13px; color:#fff; font-weight:500; margin:0 0 6px; }
+  .sp-post-content p { font-size:11px; color:rgba(255,255,255,0.65); margin:0 0 10px; line-height:1.6; }
+  .sp-post-tag { background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.8); font-size:10px; padding:3px 8px; border-radius:4px; display:inline-block; margin-right:4px; }
+  .sp-mobile-frame { margin:0 auto; width:220px; border:2px solid var(--color-border-secondary); border-radius:24px; overflow:hidden; box-shadow:0 0 0 4px var(--color-background-secondary); }
+  .sp-mobile-bar { background:#0F3D24; height:28px; display:flex; align-items:center; justify-content:center; }
+  .sp-mobile-bar-dot { width:60px; height:5px; background:rgba(255,255,255,0.2); border-radius:10px; }
+  .sp-mobile-content { background:var(--color-background-primary); }
+  .sp-mobile-hero { background:#0F3D24; padding:14px 12px; }
+  .sp-mobile-hero h2 { font-size:13px; color:#fff; font-weight:500; margin:0 0 5px; }
+  .sp-mobile-hero p { font-size:10px; color:rgba(255,255,255,0.65); margin:0; }
+  .sp-mobile-cards { display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:10px; }
+  .sp-mobile-card { background:var(--color-background-secondary); border-radius:8px; padding:9px 8px; }
+  .sp-mobile-card .icon { font-size:14px; margin-bottom:4px; }
+  .sp-mobile-card p { font-size:9px; color:var(--color-text-secondary); margin:0; }
+  .sp-divider { height:0.5px; background:var(--color-border-tertiary); margin:4px 0; }
+  .sp-schemes { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+  .sp-scheme-pill { background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); border-radius:8px; padding:10px 10px; }
+  .sp-scheme-pill i { font-size:18px; color:#1D6B3A; display:block; margin-bottom:5px; }
+  .sp-scheme-pill p { font-size:11px; color:var(--color-text-primary); font-weight:500; margin:0 0 2px; }
+  .sp-scheme-pill span { font-size:10px; color:var(--color-text-secondary); }
+  .sp-footer { background:var(--color-background-secondary); border-top:0.5px solid var(--color-border-tertiary); padding:18px 28px; text-align:center; }
+  .sp-footer p { font-size:12px; color:var(--color-text-secondary); margin:0; }
+</style>
+
+<h2 class="sr-only">सूर्यपुरा ग्राम विकास पोर्टल — Homepage Demo with Hero, Services, Leader Profile, Social Posts and Mobile View</h2>
+
+<div style="border:0.5px solid var(--color-border-tertiary); border-radius:16px; overflow:hidden; background:var(--color-background-primary);">
+
+  <!-- NAV -->
+  <div class="sp-nav">
+    <div class="sp-logo">
+      <div class="sp-logo-circle">
+        <i class="ti ti-sun" style="color:#F4C232; font-size:18px;" aria-hidden="true"></i>
+      </div>
+      <div>
+        <div class="sp-logo-text sp-hindi">सूर्यपुरा</div>
+        <div class="sp-logo-sub">ग्राम विकास पोर्टल</div>
+      </div>
+    </div>
+    <div class="sp-nav-links">
+      <span>योजनाएं</span>
+      <span>किसान</span>
+      <span>शिक्षा</span>
+      <span>पंचायत</span>
+      <span style="background:#1D6B3A; color:#fff; padding:5px 14px; border-radius:6px; font-size:12px;">लॉगिन करें</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="sp-hero">
+    <div class="sp-hero-deco"></div>
+    <div class="sp-hero-deco2"></div>
+    <div class="sp-hero-tag sp-hindi">
+      <i class="ti ti-flag" style="font-size:13px;" aria-hidden="true"></i>
+      डिजिटल भारत · ग्रामीण क्रांति
+    </div>
+    <h1 class="sp-hindi">सूर्यपुरा — जहाँ हर सपना<br>हकीकत बनता है</h1>
+    <p class="sp-hindi">किसान, शिक्षा, सड़क, स्वास्थ्य और पंचायत — सब कुछ एक ही पोर्टल पर। आपका गाँव, आपका अधिकार, आपकी पहचान।</p>
+    <div class="sp-hero-btns">
+      <button class="sp-btn-primary sp-hindi">अभी जुड़ें →</button>
+      <button class="sp-btn-secondary sp-hindi">योजनाएं देखें</button>
+    </div>
+    <div class="sp-stats-row">
+      <div class="sp-stat">
+        <div class="sp-stat-num">4,820</div>
+        <div class="sp-stat-lbl sp-hindi">पंजीकृत किसान</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-stat-num">98%</div>
+        <div class="sp-stat-lbl sp-hindi">सड़क कवरेज</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-stat-num">12</div>
+        <div class="sp-stat-lbl sp-hindi">सक्रिय योजनाएं</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-stat-num">3,100+</div>
+        <div class="sp-stat-lbl sp-hindi">डिजिटल पहचान</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEADER SECTION -->
+  <div class="sp-section">
+    <div class="sp-section-title sp-hindi">विकास दूत</div>
+    <div class="sp-section-sub sp-hindi">सूर्यपुरा के प्रेरणास्रोत नेता</div>
+    <div class="sp-leader">
+      <div class="sp-avatar">रा</div>
+      <div class="sp-leader-info">
+        <h3 class="sp-hindi">राजेंद्र सिंह पटेल</h3>
+        <div class="sp-role sp-hindi">ग्राम प्रधान · सूर्यपुरा विकास दूत</div>
+        <p class="sp-hindi">"हमारा गाँव डिजिटल क्रांति की दहलीज पर है। हर बच्चे को शिक्षा, हर किसान को उचित मूल्य और हर घर को पक्की सड़क — यही हमारा संकल्प है।"</p>
+        <div>
+          <span class="sp-badge"><i class="ti ti-award" style="font-size:11px;"></i> 2023 ग्राम रत्न</span>
+          <span class="sp-badge"><i class="ti ti-leaf" style="font-size:11px;"></i> किसान मित्र</span>
+          <span class="sp-badge"><i class="ti ti-school" style="font-size:11px;"></i> शिक्षा प्रहरी</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-divider" style="margin:0 28px;"></div>
+
+  <!-- SERVICES GRID -->
+  <div class="sp-section">
+    <div class="sp-section-title sp-hindi">प्रमुख सेवाएं</div>
+    <div class="sp-section-sub sp-hindi">विकास की हर दिशा में कदम</div>
+    <div class="sp-grid2">
+      <div class="sp-card">
+        <div class="sp-card-icon" style="background:#E8F5E9;"><i class="ti ti-plant-2" style="color:#1D6B3A; font-size:18px;" aria-hidden="true"></i></div>
+        <h3 class="sp-hindi">किसान पोर्टल</h3>
+        <p class="sp-hindi">MSP दर, बीज वितरण, फसल बीमा और मंडी भाव सीधे आपके मोबाइल पर</p>
+        <div class="sp-progress"><div class="sp-progress-fill" style="width:78%; background:#1D6B3A;"></div></div>
+        <div class="sp-progress-label"><span class="sp-hindi">लाभार्थी</span><span>78%</span></div>
+      </div>
+      <div class="sp-card">
+        <div class="sp-card-icon" style="background:#E3F2FD;"><i class="ti ti-school" style="color:#185FA5; font-size:18px;" aria-hidden="true"></i></div>
+        <h3 class="sp-hindi">शिक्षा केंद्र</h3>
+        <p class="sp-hindi">डिजिटल कक्षा, छात्रवृत्ति और 3 नए प्राथमिक विद्यालय निर्माण जारी</p>
+        <div class="sp-progress"><div class="sp-progress-fill" style="width:65%; background:#185FA5;"></div></div>
+        <div class="sp-progress-label"><span class="sp-hindi">नामांकन वृद्धि</span><span>65%</span></div>
+      </div>
+      <div class="sp-card">
+        <div class="sp-card-icon" style="background:#FFF3E0;"><i class="ti ti-road" style="color:#BA7517; font-size:18px;" aria-hidden="true"></i></div>
+        <h3 class="sp-hindi">सड़क विकास</h3>
+        <p class="sp-hindi">PMGSY के तहत 42 किमी नई पक्की सड़क, 6 पुल निर्माण प्रगति पर</p>
+        <div class="sp-progress"><div class="sp-progress-fill" style="width:91%; background:#BA7517;"></div></div>
+        <div class="sp-progress-label"><span class="sp-hindi">कार्य पूर्ण</span><span>91%</span></div>
+      </div>
+      <div class="sp-card">
+        <div class="sp-card-icon" style="background:#FCE4EC;"><i class="ti ti-id-badge-2" style="color:#993556; font-size:18px;" aria-hidden="true"></i></div>
+        <h3 class="sp-hindi">डिजिटल पहचान</h3>
+        <p class="sp-hindi">आधार लिंकिंग, राशन कार्ड और ग्रामीण ई-KYC सेवाएं एक क्लिक में</p>
+        <div class="sp-progress"><div class="sp-progress-fill" style="width:84%; background:#993556;"></div></div>
+        <div class="sp-progress-label"><span class="sp-hindi">पूर्ण पंजीकरण</span><span>84%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-divider" style="margin:0 28px;"></div>
+
+  <!-- SCHEMES ROW -->
+  <div class="sp-section">
+    <div class="sp-section-title sp-hindi">सक्रिय सरकारी योजनाएं</div>
+    <div class="sp-section-sub sp-hindi">आपके गाँव के लिए लागू योजनाएं</div>
+    <div class="sp-schemes">
+      <div class="sp-scheme-pill">
+        <i class="ti ti-home-2" aria-hidden="true"></i>
+        <p class="sp-hindi">PM आवास</p>
+        <span class="sp-hindi">320 घर स्वीकृत</span>
+      </div>
+      <div class="sp-scheme-pill">
+        <i class="ti ti-droplet" aria-hidden="true"></i>
+        <p class="sp-hindi">जल जीवन</p>
+        <span class="sp-hindi">98% घरों में नल</span>
+      </div>
+      <div class="sp-scheme-pill">
+        <i class="ti ti-bolt" aria-hidden="true"></i>
+        <p class="sp-hindi">सौभाग्य</p>
+        <span class="sp-hindi">100% विद्युतीकरण</span>
+      </div>
+      <div class="sp-scheme-pill">
+        <i class="ti ti-heart-rate-monitor" aria-hidden="true"></i>
+        <p class="sp-hindi">आयुष्मान</p>
+        <span class="sp-hindi">2,100 लाभार्थी</span>
+      </div>
+      <div class="sp-scheme-pill">
+        <i class="ti ti-building-bank" aria-hidden="true"></i>
+        <p class="sp-hindi">PM किसान</p>
+        <span class="sp-hindi">4,820 खाते</span>
+      </div>
+      <div class="sp-scheme-pill">
+        <i class="ti ti-wifi" aria-hidden="true"></i>
+        <p class="sp-hindi">ग्राम WiFi</p>
+        <span class="sp-hindi">8 हॉटस्पॉट सक्रिय</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-divider" style="margin:0 28px;"></div>
+
+  <!-- SOCIAL MEDIA POSTS -->
+  <div class="sp-section">
+    <div class="sp-section-title sp-hindi">सोशल मीडिया पोस्ट</div>
+    <div class="sp-section-sub sp-hindi">सूर्यपुरा की आवाज़ — डिजिटल दुनिया में</div>
+    <div class="sp-social-grid">
+      <div class="sp-social-post sp-post-1">
+        <div class="sp-post-header">
+          <div class="sp-post-logo"><i class="ti ti-sun" style="color:#F4C232; font-size:14px;" aria-hidden="true"></i></div>
+          <div>
+            <div class="sp-post-name" style="font-weight:500; color:#fff;">सूर्यपुरा पंचायत</div>
+            <div class="sp-post-name">@suryapura_gram</div>
+          </div>
+        </div>
+        <div class="sp-post-content">
+          <h4 class="sp-hindi">🌾 किसान भाइयों, खुशखबरी!</h4>
+          <p class="sp-hindi">इस खरीफ सीज़न में PM किसान के तहत ₹6,000 की अगली किस्त जारी। पोर्टल पर अपना स्टेटस जाँचें।</p>
+          <span class="sp-post-tag">#PMKisan</span>
+          <span class="sp-post-tag">#सूर्यपुरा</span>
+          <span class="sp-post-tag">#किसान</span>
+        </div>
+        <div style="margin-top:8px; padding-top:8px; border-top:0.5px solid rgba(255,255,255,0.12); display:flex; gap:14px; font-size:11px; color:rgba(255,255,255,0.5);">
+          <span><i class="ti ti-heart" style="font-size:12px; vertical-align:-1px;"></i> 248</span>
+          <span><i class="ti ti-message-circle" style="font-size:12px; vertical-align:-1px;"></i> 34</span>
+          <span><i class="ti ti-share" style="font-size:12px; vertical-align:-1px;"></i> 91</span>
+        </div>
+      </div>
+      <div class="sp-social-post sp-post-2">
+        <div class="sp-post-header">
+          <div class="sp-post-logo" style="background:rgba(255,255,255,0.12);"><i class="ti ti-school" style="color:#85B7EB; font-size:14px;" aria-hidden="true"></i></div>
+          <div>
+            <div class="sp-post-name" style="font-weight:500; color:#fff;">विकास दूत राजेंद्र</div>
+            <div class="sp-post-name">@rajendra_vikas</div>
+          </div>
+        </div>
+        <div class="sp-post-content">
+          <h4 class="sp-hindi">📚 शिक्षा ही असली विकास है</h4>
+          <p class="sp-hindi">आज सूर्यपुरा में नई डिजिटल पाठशाला का उद्घाटन। 200 बच्चों को मिलेगी टैबलेट और मुफ्त इंटरनेट सुविधा।</p>
+          <span class="sp-post-tag">#DigitalShiksha</span>
+          <span class="sp-post-tag">#GramVikas</span>
+        </div>
+        <div style="margin-top:8px; padding-top:8px; border-top:0.5px solid rgba(255,255,255,0.12); display:flex; gap:14px; font-size:11px; color:rgba(255,255,255,0.5);">
+          <span><i class="ti ti-heart" style="font-size:12px; vertical-align:-1px;"></i> 412</span>
+          <span><i class="ti ti-message-circle" style="font-size:12px; vertical-align:-1px;"></i> 67</span>
+          <span><i class="ti ti-share" style="font-size:12px; vertical-align:-1px;"></i> 143</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-divider" style="margin:0 28px;"></div>
+
+  <!-- MOBILE VIEW -->
+  <div class="sp-section">
+    <div class="sp-section-title sp-hindi">मोबाइल व्यू</div>
+    <div class="sp-section-sub sp-hindi">किसी भी स्मार्टफोन पर पोर्टल ऐसा दिखेगा</div>
+    <div style="display:flex; justify-content:center; padding:16px 0;">
+      <div class="sp-mobile-frame">
+        <div class="sp-mobile-bar"><div class="sp-mobile-bar-dot"></div></div>
+        <div class="sp-mobile-content">
+          <div class="sp-mobile-hero">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+              <div style="font-size:11px; color:rgba(255,255,255,0.7);" class="sp-hindi">सूर्यपुरा ग्राम</div>
+              <i class="ti ti-menu-2" style="color:rgba(255,255,255,0.7); font-size:14px;"></i>
+            </div>
+            <h2 class="sp-hindi">नमस्ते 🙏</h2>
+            <p class="sp-hindi">आज के अपडेट देखें</p>
+            <div style="background:rgba(244,194,50,0.2); border:0.5px solid rgba(244,194,50,0.3); border-radius:6px; padding:6px 8px; margin-top:8px;">
+              <span style="font-size:9px; color:#F4C232;" class="sp-hindi">⚡ PM किसान किस्त आ गई — अभी चेक करें</span>
+            </div>
+          </div>
+          <div class="sp-mobile-cards">
+            <div class="sp-mobile-card">
+              <div class="icon">🌾</div>
+              <p class="sp-hindi">किसान पोर्टल</p>
+            </div>
+            <div class="sp-mobile-card">
+              <div class="icon">🏫</div>
+              <p class="sp-hindi">शिक्षा केंद्र</p>
+            </div>
+            <div class="sp-mobile-card">
+              <div class="icon">🛣️</div>
+              <p class="sp-hindi">सड़क स्थिति</p>
+            </div>
+            <div class="sp-mobile-card">
+              <div class="icon">🆔</div>
+              <p class="sp-hindi">डिजिटल ID</p>
+            </div>
+          </div>
+          <div style="padding:8px 10px; border-top:0.5px solid var(--color-border-tertiary);">
+            <div style="font-size:10px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;" class="sp-hindi">पंचायत सूचना</div>
+            <div style="background:var(--color-background-secondary); border-radius:6px; padding:7px 8px;">
+              <div style="font-size:9px; color:var(--color-text-secondary);" class="sp-hindi">📢 ग्राम सभा — 20 जून, शाम 5 बजे</div>
+            </div>
+            <div style="background:var(--color-background-secondary); border-radius:6px; padding:7px 8px; margin-top:4px;">
+              <div style="font-size:9px; color:var(--color-text-secondary);" class="sp-hindi">🚧 वार्ड 3 में सड़क निर्माण जारी</div>
+            </div>
+          </div>
+          <div style="padding:8px 10px; display:flex; justify-content:space-around; border-top:0.5px solid var(--color-border-tertiary);">
+            <div style="text-align:center; font-size:8px; color:#1D6B3A;" class="sp-hindi"><i class="ti ti-home" style="font-size:14px; display:block; margin-bottom:2px;"></i>होम</div>
+            <div style="text-align:center; font-size:8px; color:var(--color-text-secondary);" class="sp-hindi"><i class="ti ti-file-text" style="font-size:14px; display:block; margin-bottom:2px;"></i>योजना</div>
+            <div style="text-align:center; font-size:8px; color:var(--color-text-secondary);" class="sp-hindi"><i class="ti ti-bell" style="font-size:14px; display:block; margin-bottom:2px;"></i>अपडेट</div>
+            <div style="text-align:center; font-size:8px; color:var(--color-text-secondary);" class="sp-hindi"><i class="ti ti-user" style="font-size:14px; display:block; margin-bottom:2px;"></i>प्रोफाइल</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="sp-footer">
+    <p class="sp-hindi" style="font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">सूर्यपुरा ग्राम पंचायत · राजस्थान</p>
+    <p class="sp-hindi">डिजिटल इंडिया मिशन के अंतर्गत निर्मित · सर्वाधिकार सुरक्षित © 2025</p>
+  </div>
+
+</div>
