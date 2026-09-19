@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2298,17 +2299,104 @@
 
 
     /* =========================================================
-   TABLET
+   RESPONSIVE — HERO SECTION
+   ---------------------------------------------------------
+   The right-hand graphic is drawn on a fixed 525 x 620 canvas.
+   From 1100px down it is scaled with --hero-scale, and the
+   layout box is reserved at the scaled size (no gaps, no
+   overflow, no clipping).
+
+   >= 1281px  : untouched desktop layout
+   1101-1280  : title kept on one line (small laptops)
+   961-1100   : two columns, graphic scaled (0.9 / 0.8)
+   <= 960px   : stacked + centred, graphic scaled to fit
+   <= 560px   : phone tweaks (2x2 tech list, full-width buttons)
 ========================================================= */
 
+
+    /* ---------- Small laptops: keep the name on one line ---------- */
+
+    @media (max-width: 1280px) {
+
+      .hero-title {
+
+        font-size:
+          clamp(50px,
+            min(6.2vw, (100vw - 694px) / 7.3),
+            83px);
+
+      }
+
+    }
+
+
+    /* ---------- Two-column layouts that are a little tight ---------- */
+
+    @media (min-width: 961px) and (max-width: 1200px) {
+
+      .technology-item {
+
+        padding: 0 10px;
+
+        gap: 8px;
+
+        font-size: 13px;
+
+      }
+
+
+      .technology-icon {
+
+        width: 28px;
+
+        height: 28px;
+
+        font-size: 12px;
+
+      }
+
+    }
+
+
+    /* ---------- Tablet landscape / small laptop (two columns) ---------- */
+
     @media (max-width: 1100px) {
+
+      /* let the section run edge to edge so nothing gets clipped early */
+      .hero-wrap {
+
+        padding-left: 0;
+
+        padding-right: 0;
+
+      }
+
+
+      .hero-section {
+
+        --hero-scale: 0.9;
+
+        padding-left: 32px;
+
+        padding-right: 32px;
+
+      }
+
+
+      .hero-container {
+
+        width: 100%;
+
+      }
+
 
       .hero-grid {
 
         grid-template-columns:
-          1fr 0.9fr;
 
-        gap: 10px;
+          minmax(0, 1fr) calc(550px * var(--hero-scale));
+
+        gap: 24px;
 
       }
 
@@ -2316,22 +2404,34 @@
       .hero-title {
 
         font-size:
-          clamp(52px,
-            6vw,
-            72px);
+
+          clamp(44px,
+            5.4vw,
+            68px);
 
       }
 
 
+      /* graphic: fixed canvas, scaled, box reserved at scaled size */
       .hero-visual {
 
+        width: 525px;
+
+        height: 620px;
+
+        min-height: 0;
+
+        margin-bottom:
+
+          calc(-620px * (1 - var(--hero-scale)));
+
         transform:
-          scale(0.88);
+
+          scale(var(--hero-scale));
 
         transform-origin:
-          center;
 
-        margin-left: -25px;
+          top left;
 
       }
 
@@ -2345,8 +2445,172 @@
     }
 
 
+    @media (max-width: 1040px) {
+
+      .hero-section {
+
+        --hero-scale: 0.8;
+
+      }
+
+    }
+
+
     /* =========================================================
-   TABLET / MOBILE
+   TABLET PORTRAIT / MOBILE (stacked, centred)
+========================================================= */
+
+    @media (max-width: 960px) {
+
+      .hero-section {
+
+        --hero-scale: 1;
+
+        padding: 135px 20px 80px;
+
+      }
+
+
+      .hero-container {
+
+        width: min(680px, 100%);
+
+      }
+
+
+      .hero-grid {
+
+        grid-template-columns: minmax(0, 1fr);
+
+        min-height: 0;
+
+        gap: 35px;
+
+      }
+
+
+      .hero-content {
+
+        text-align: center;
+
+      }
+
+
+      .hero-title {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+        font-size:
+
+          clamp(36px,
+            11.2vw,
+            72px);
+
+      }
+
+
+      .hero-description {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+      }
+
+
+      .technology-list {
+
+        justify-content: center;
+
+      }
+
+
+      .hero-actions {
+
+        justify-content: center;
+
+      }
+
+
+      /* centre the scaled graphic inside the single column */
+      .hero-visual {
+
+        margin-left:
+
+          calc(50% - 275px * var(--hero-scale));
+
+      }
+
+    }
+
+
+    /* ---------- Graphic scale steps (keeps it inside the screen) ---------- */
+
+    @media (max-width: 589px) {
+      .hero-section {
+        --hero-scale: 0.94;
+      }
+    }
+
+    @media (max-width: 559px) {
+      .hero-section {
+        --hero-scale: 0.89;
+      }
+    }
+
+    @media (max-width: 529px) {
+      .hero-section {
+        --hero-scale: 0.83;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .hero-section {
+        --hero-scale: 0.78;
+      }
+    }
+
+    @media (max-width: 469px) {
+      .hero-section {
+        --hero-scale: 0.72;
+      }
+    }
+
+    @media (max-width: 439px) {
+      .hero-section {
+        --hero-scale: 0.68;
+      }
+    }
+
+    @media (max-width: 414px) {
+      .hero-section {
+        --hero-scale: 0.63;
+      }
+    }
+
+    @media (max-width: 389px) {
+      .hero-section {
+        --hero-scale: 0.59;
+      }
+    }
+
+    @media (max-width: 364px) {
+      .hero-section {
+        --hero-scale: 0.54;
+      }
+    }
+
+    @media (max-width: 339px) {
+      .hero-section {
+        --hero-scale: 0.5;
+      }
+    }
+
+
+    /* =========================================================
+   NAV (unchanged)
 ========================================================= */
 
     @media (max-width: 850px) {
@@ -2399,92 +2663,6 @@
 
       }
 
-
-      .hero-section {
-
-        padding-top: 135px;
-
-      }
-
-
-      .hero-container {
-
-        width:
-          min(680px,
-            calc(100% - 40px));
-
-      }
-
-
-      .hero-grid {
-
-        grid-template-columns: 1fr;
-
-        min-height: 0;
-
-        gap: 35px;
-
-      }
-
-
-      .hero-content {
-
-        text-align: center;
-
-      }
-
-
-      .hero-title {
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-      }
-
-
-      .hero-description {
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-      }
-
-
-      .technology-list {
-
-        justify-content: center;
-
-      }
-
-
-      .hero-actions {
-
-        justify-content: center;
-
-      }
-
-
-      .hero-visual {
-
-        width: 590px;
-
-        max-width: 100%;
-
-        min-height: 520px;
-
-        margin:
-          -25px auto 0;
-
-        transform:
-          scale(0.78);
-
-        transform-origin:
-          top center;
-
-      }
-
     }
 
 
@@ -2501,45 +2679,89 @@
       }
 
 
-      .hero-title {
+      .availability-badge {
 
-        font-size:
-          clamp(44px,
-            13vw,
-            60px);
+        gap: 10px;
+
+        padding: 9px 15px;
+
+        margin-bottom: 18px;
+
+        font-size: 13px;
 
       }
 
 
       .hero-role {
 
-        font-size: 24px;
+        margin-top: 16px;
+
+        font-size:
+
+          clamp(20px,
+            6.2vw,
+            24px);
 
       }
 
 
       .hero-description {
 
+        margin-top: 20px;
+
+        margin-bottom: 22px;
+
         font-size: 15px;
+
+      }
+
+
+      /* 2 x 2 tech list instead of a row that wraps unevenly */
+      .technology-list {
+
+        display: grid;
+
+        grid-template-columns: repeat(2, auto);
+
+        justify-content: center;
+
+        row-gap: 14px;
+
+        margin-bottom: 26px;
 
       }
 
 
       .technology-item {
 
-        padding:
-          0 10px;
+        font-size: 13px;
 
-        font-size: 12px;
+      }
+
+
+      .technology-item:nth-child(odd) {
+
+        padding: 0 16px 0 0;
+
+        border-left: none;
+
+      }
+
+
+      .technology-item:nth-child(even) {
+
+        padding: 0 0 0 16px;
 
       }
 
 
       .technology-icon {
 
-        width: 27px;
+        width: 28px;
 
-        height: 27px;
+        height: 28px;
+
+        font-size: 12px;
 
       }
 
@@ -2548,22 +2770,22 @@
 
         width: 100%;
 
+        min-height: 56px;
+
+        font-size: 15px;
+
       }
 
+    }
 
-      .hero-visual {
 
-        width: 540px;
+    @media (max-width: 360px) {
 
-        min-height: 480px;
+      .availability-badge {
 
-        margin-left: 50%;
+        padding: 8px 13px;
 
-        transform:
-          scale(0.62);
-
-        transform-origin:
-          top left;
+        font-size: 12px;
 
       }
 
@@ -2646,7 +2868,7 @@
   </nav>
 
   <!-- HERO -->
-  <div class="wrap">
+  <div class="wrap hero-wrap">
     <section class="hero-section" id="home">
 
       <!-- Background Decorations -->
